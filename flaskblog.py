@@ -1,22 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,url_for
 
 # Use render template for rendering the html pages.
 app = Flask(__name__)
 posts_list = [
     {
         'author': 'Roshan Gardi',
-        'title': 'First Blog Post',
+        'title': 'Blog Post1',
         'content': 'My content',
-        'date': 'September 21 2020'
+        'date': 'Sep 21 2020'
     },
     {
         'author': 'James Pitt',
-        'title': 'Second Blog Post',
+        'title': 'Blog Post2',
         'content': 'My content',
-        'date': 'September 22 2020'
+        'date': 'Sep 22 2020'
     }
 ]
-
 
 @app.route('/')  # when opened main page it will go to below function
 @app.route('/home')  # can use multiple routes for single function

@@ -1,10 +1,20 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<div class="row">
     {% for post in posts %}
-    <h1>{{ post.title }}</h1>
-    <p> By {{ post.author }} on {{ post.date }}</p>
-    <p> {{ post.content }}</p>
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata pt-3">
+          <a class="mr-3" href="#">{{ post.author }}</a>
+          <small class="text-muted">{{ post.date }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+        <p class="article-content">{{ post.content }}</p>
+      </div>
+    </article>
+    <p class='text-muted pr-3'></p>
     {% endfor  %}
+</div>
 {% endblock content %} <!-- will work even without block name i.e. 'content', but just to be clear which block is
  closed we can specify the block name  -->
