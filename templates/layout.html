@@ -18,7 +18,7 @@
     {% endif %}
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
@@ -39,13 +39,14 @@
         </div>
       </header>
      </div>
+    <p class='text-muted pr-3'></p>
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-9">
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-3">
-          <div class="content-section pt-3">
+          <div class="content-section">
             <h3>Our Sidebar</h3>
             <p class='text-muted'>You can put any information here you'd like.
               <ul class="list-group">

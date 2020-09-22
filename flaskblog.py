@@ -1,7 +1,11 @@
 from flask import Flask, render_template,url_for
+from forms import RegistrationForm, LoginForm
 
 # Use render template for rendering the html pages.
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'ATApePBVzvG8U438SDzzbtJtPkTT8Jfk'
+
 posts_list = [
     {
         'author': 'Roshan Gardi',
