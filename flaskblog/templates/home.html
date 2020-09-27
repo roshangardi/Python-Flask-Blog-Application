@@ -11,12 +11,13 @@
               <h3 class="mb-0">
                 <a class="text-dark" href="#">{{ post.title }}</a>
               </h3>
-              <div class="mb-1 text-muted">{{ post.date }}</div>
-              <p class="card-text mb-auto">{{ post.content }}asdasdsdfsdf</p>
-                <a href="mb-auto">{{ post.author }}</a>
-              <a href="pt-2">Continue reading</a>
+              <div class="mb-1 text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</div>
+              <p class="card-text mb-auto">{{ post.content }}</p>
+                <a href="mb-auto">- By {{ post.author.username }}</a>
+              <a href="#pt-2">Continue reading</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-lg-block " data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+              <img class="card-img-right flex-auto d-none d-lg-block " src="{{url_for('static', filename='profile_pics/' + post.author.image_file)}}" alt="Card image cap">
+<!--                <img class="rounded-circle article-img" src="{{url_for('static', filename='profile_pics/' + post.author.image_file)}}" alt="Card image cap">-->
           </div>
         </div>
     </div>
