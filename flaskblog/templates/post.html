@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="bg">
+		<div class="col-md-12 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom" style="color:white;opacity: 0.7;">
+            From the Firehose
+          </h3>
+
+          <div class="blog-post">
+            <h2 class="blog-post-title" style="color:white;opacity: 0.7;">{{ post.title }}</h2>
+            <p class="blog-post-meta">{{ post.date_posted.strftime('%Y-%m-%d') }} by <a href="#">{{ post.author.username }}</a></p>
+
+            <p>{{ post.content }}</p>
+            <hr>
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+            <blockquote>
+              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </blockquote>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h2 style="color:white;opacity: 0.7;">Heading</h2>
+            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+            <h3 style="color:white;opacity: 0.7;">Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <pre><code>Example code block</code></pre>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+            <h3 style="color:white;opacity: 0.7;">Sub-heading</h3>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <ul>
+              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+              <li>Donec id elit non mi porta gravida at eget metus.</li>
+              <li>Nulla vitae elit libero, a pharetra augue.</li>
+            </ul>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+            <ol>
+              <li>Vestibulum id ligula porta felis euismod semper.</li>
+              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+            </ol>
+            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+          </div><!-- /.blog-post -->
+
+          <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+          </nav>
+
+        </div>
+        </div>
+<!--    <div class="row">-->
+<!--        <div class="row mb-2">-->
+<!--            <div class="col-md-6">-->
+<!--&lt;!&ndash;              <div class="card flex-md-row mb-4 shadow-sm h-md-250">&ndash;&gt;-->
+<!--                <div class="card-body d-flex flex-column align-items-start">-->
+<!--                  <strong class="d-inline-block mb-2 text-primary">Post</strong>-->
+<!--                  <h3 class="mb-0">-->
+<!--                      <h2 class="article-title">{{ post.title }}</h2>-->
+<!--                  </h3>-->
+<!--                  <div class="mb-1 text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</div>-->
+<!--                  <p class="card-text mb-auto">{{ post.content }}</p>-->
+<!--                    <a href="mb-auto">- By {{ post.author.username }}</a>-->
+<!--                </div>-->
+<!--&lt;!&ndash;                  <img class="card-img-right flex-auto d-none d-lg-block " src="{{url_for('static', filename='profile_pics/' + post.author.image_file)}}" alt="Card image cap">&ndash;&gt;-->
+<!--    &lt;!&ndash;                <img class="rounded-circle article-img" src="{{url_for('static', filename='profile_pics/' + post.author.image_file)}}" alt="Card image cap">&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <p class='text-muted pr-3'></p>-->
+<!--    </div>-->
+{% endblock content %} <!-- will work even without block name i.e. 'content', but just to be clear which block is
+ closed we can specify the block name  -->

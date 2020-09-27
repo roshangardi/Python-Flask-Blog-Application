@@ -4,6 +4,14 @@
    padding: 0px;
 }
 
+.jumbotron {
+ background-image: url('https://source.unsplash.com/cYrMQA7a3Wc/1920x1080');
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
@@ -70,11 +78,38 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-.card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
+.card-img-top {
+  height: 50%;
+  object-fit: cover;
+}
+.card {
+  overflow: hidden;
+  height:470px;
+}
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px;
+    max-height: 67px;
+    -webkit-line-clamp: 4; /* Write the number of lines you want to be displayed
+                            Webkit only works in chrome/Safari, for others use white-space: nowrap;
+                            which cuts off sentence after first line*/
+
+    -webkit-box-orient: vertical;
+}
+.card-block {
+  word-wrap: break-word;
 }
 
+.card-body {
+    padding-top: 0.25rem;
+}
+.card-footer{
+position:absolute;
+  bottom:0;
+  width:100%;
+}
 .flex-auto {
   -ms-flex: 0 0 auto;
   -webkit-box-flex: 0;
@@ -151,6 +186,10 @@ body {
   color: #333333;
 }
 
+body, html {
+  height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
@@ -160,11 +199,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #f8f8ff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+}
+.list-group-item{
+background: #f8f8ff;
 }
 
 .article-title {
