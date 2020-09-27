@@ -1,9 +1,34 @@
 {% extends 'layout.html' %}
 {% block content %}
+<script>
+      function getImagePath(){
+      var arr = [
+      "https://source.unsplash.com/Im7lZjxeLhg/1920x1080","https://source.unsplash.com/0kjNpxQ6dPQ/1920x1080",
+      "https://source.unsplash.com/iar-afB0QQw/1920x1080","https://source.unsplash.com/ah-HeguOe9k/1920x1080",
+      "https://source.unsplash.com/MxVkWPiJALs/1920x1080","https://source.unsplash.com/duNHkmSkW6M/1920x1080",
+      "https://source.unsplash.com/1DjbGRDh7-E/1920x1080","https://source.unsplash.com/-xTBn1YBrTE/1920x1080",
+      "https://source.unsplash.com/A22zto3GRF4/1920x1080","https://source.unsplash.com/o4UhdLv5jbQ/1920x1080",
+      "https://source.unsplash.com/3_a7s0MAXhc/1920x1080","https://source.unsplash.com/EOAKUQcsFIU/1920x1080",
+      "https://source.unsplash.com/MnPF-0DTQ5c/1920x1080","https://source.unsplash.com/hXOGHaGCtdA/1920x1080",
+      "https://source.unsplash.com/dyNa48QQNd0/1920x1080","https://source.unsplash.com/T_6k5qqV9b8/1920x1080",
+      "https://source.unsplash.com/u_ObRw9rCFs/1920x1080","https://source.unsplash.com/DtNOKuodKD4/1920x1080",
+      "https://source.unsplash.com/1GOyCAnJCms/1920x1080","https://source.unsplash.com/3_feR7eBK5s/1920x1080",
+      "https://source.unsplash.com/Fsgzm8N0hIY/1920x1080","https://source.unsplash.com/leDcT12Igmo/1920x1080",
+      "https://source.unsplash.com/QSvIIO_oVTo/1920x1080","https://source.unsplash.com/Bs-zngH79Ds/1920x1080"];
+
+      return arr[Math.floor(Math.random() * arr.length)];
+      }
+      function set_most_recent_img_src(val) {
+        var a = document.body.getElementsByTagName('IMG'); <!--  	Refer : https://stackoverflow.com/questions/12196435/javascript-function-return-src-path-->
+        var img = a?a[a.length-1]:0;
+        if (img) img.src = val;
+      }
+</script>
+
 <div class="card-columns">
     {% for post in posts %}
         <div class="card shadow-sm mb-4">
-            <img class="card-img-top" src="{{url_for('static', filename='profile_pics/' + post.author.image_file)}}" alt="Card image cap">
+            <img class="card-img-top" alt="Card image cap"><script>set_most_recent_img_src(getImagePath())</script>
             <div class="card-body bg-light d-flex flex-column align-items-start">
               <strong class="d-inline-block text-primary">Post</strong>
               <h3 class="mb-0">
