@@ -7,19 +7,12 @@ from PIL import Image
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-picture_list = ["https://source.unsplash.com/Im7lZjxeLhg/1920x1080","https://source.unsplash.com/0kjNpxQ6dPQ/1920x1080",
-              "https://source.unsplash.com/iar-afB0QQw/1920x1080","https://source.unsplash.com/ah-HeguOe9k/1920x1080",
-              "https://source.unsplash.com/MxVkWPiJALs/1920x1080","https://source.unsplash.com/duNHkmSkW6M/1920x1080",
-              "https://source.unsplash.com/1DjbGRDh7-E/1920x1080","https://source.unsplash.com/-xTBn1YBrTE/1920x1080",
-              "https://source.unsplash.com/wT-xJyLHcNA/1920x1080","https://source.unsplash.com/o4UhdLv5jbQ/1920x1080",
-              "https://source.unsplash.com/mCj7UinqOYQ/1920x1080","https://source.unsplash.com/EOAKUQcsFIU/1920x1080",
-              "https://source.unsplash.com/BOUdudmAnk4/1920x1080","https://source.unsplash.com/Bs-zngH79Ds/1920x1080",]
-
 @app.route("/")
 @app.route("/home")
 def home():
-    posts_list = Post.query.all()
-    return render_template('home.html', posts=posts_list,picture=random.choice(picture_list))
+    page = request.args.get('page', 1, type=int)
+    posts_list = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=3)
+    return render_template('home.html', posts=posts_list)
 
 
 @app.route("/about")
@@ -135,3 +128,26 @@ def update_post(post_id):
         form.title.data = post.title
         form.content.data = post.content
     return render_template('create_post.html', title='Update Post', form=form, legend='Update Post')
+
+
+@app.route("/post/<int:post_id>/delete", methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if post.author != current_user:
+        abort(403)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Your Post has been deleted!', 'success')
+    return redirect(url_for('home'))
+
+
+@app.route("/user/<string:username>")
+def user_posts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    posts_list = Post.query.filter_by(author=user) \
+                .order_by(Post.date_posted.desc()) \
+                .paginate(page=page, per_page=6)
+
+    return render_template('user_posts.html', posts=posts_list, user=user)

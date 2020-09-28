@@ -77,22 +77,48 @@ h1, h2, h3, h4, h5, h6 {
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
 }
+.avatar {
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+}
 
 .card-img-top {
-  height: 50%;
+  height: 70%;
   object-fit: cover;
 }
+
+.card-img {
+  height: 100%;
+  object-fit: cover;
+}
+
 .card {
   overflow: hidden;
-  height:470px;
+  height:520px;
 }
+.card-title {
+    overflow: hidden;
+    margin-bottom: 0rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 33px;
+    max-height: 60px;
+    -webkit-line-clamp: 1; /* Write the number of lines you want to be displayed
+                            Webkit only works in chrome/Safari, for others use white-space: nowrap;
+                            which cuts off sentence after first line*/
+
+    -webkit-box-orient: vertical;
+}
+
 .card-text {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    line-height: 16px;
+    line-height: 22px;
     max-height: 67px;
-    -webkit-line-clamp: 4; /* Write the number of lines you want to be displayed
+    -webkit-line-clamp: 2; /* Write the number of lines you want to be displayed
                             Webkit only works in chrome/Safari, for others use white-space: nowrap;
                             which cuts off sentence after first line*/
 
@@ -106,9 +132,13 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.25rem;
 }
 .card-footer{
-position:absolute;
-  bottom:0;
-  width:100%;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
 }
 .flex-auto {
   -ms-flex: 0 0 auto;

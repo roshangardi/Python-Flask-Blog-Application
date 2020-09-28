@@ -24,7 +24,12 @@
         if (img) img.src = val;
       }
 </script>
-
+<div class="row">
+<div class="col-md-9">
+    <div class="row">
+    <h1 class="mb-3 border-bottom pb-3" style="color:white;opacity: 0.7;"> Posts by {{user.username}}</h1>
+        <h3 class="mb-3 border-bottom pb-3" style="color:white;opacity: 0.7;">{{ posts.total }}</h3>
+    </div>
 <div class="card-columns">
     {% for post in posts.items %}
         <div class="card shadow-sm mb-4">
@@ -38,24 +43,30 @@
               <p class="card-text text-dark mb-auto">{{ post.content }}</p>
             </div>
             <div class="card-footer mt-5">
-                <a class="float-right mr-3" href="{{ url_for('user_posts',username=post.author.username)}}">- By {{ post.author.username }}</a><br>
-                <a class="float-right mr-3" href="{{ url_for('post', post_id=post.id)}}">Continue reading</a>
+                <a class="float-right" href="{{ url_for('post', post_id=post.id)}}">Continue reading</a>
             </div>
         </div>
-<!--        <p class='text-muted pr-3'></p>-->
     {% endfor  %}
-
     {% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
         {% if page_num%}
             {% if posts.page == page_num %}
-                <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num)}}">{{ page_num }}</a>
+                <a class="btn btn-info mb-4" href="{{ url_for('user_posts',username=user.username, page=page_num)}}">{{ page_num }}</a>
             {% else %}
-                <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num)}}">{{ page_num }}</a>
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('user_posts',username=user.username, page=page_num)}}">{{ page_num }}</a>
             {% endif %}
         {% else %}
             ...
         {% endif %}
     {% endfor  %}
 </div>
-{% endblock content %} <!-- will work even without block name i.e. 'content', but just to be clear which block is
+</div>
+<div class="col-md-3">
+    <div class="avatar">
+        <img class="avatar" alt="Avatar" src="{{ url_for('static', filename='profile_pics/') + user.image_file }}">
+    </div>
+    <p class='text-center' style="color:white;opacity: 0.8;">{{user.username}}</p>
+</div>
+</div>
+{% endblock content %}
+<!-- will work even without block name i.e. 'content', but just to be clear which block is
  closed we can specify the block name  -->
