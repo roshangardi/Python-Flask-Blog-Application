@@ -32,14 +32,14 @@
             <div class="card-body bg-light d-flex flex-column align-items-start">
 <!--              <strong class="d-inline-block text-primary">Post</strong>-->
               <h3 class="mb-0">
-                <a class="card-title text-dark" href="{{ url_for('post', post_id=post.id)}}">{{ post.title }}</a>
+                <a class="card-title text-dark" href="{{ url_for('posts.post', post_id=post.id)}}">{{ post.title }}</a>
               </h3>
               <div class="mb-1 text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</div>
               <p class="card-text text-dark mb-auto">{{ post.content }}</p>
             </div>
             <div class="card-footer mt-5">
-                <a class="float-right mr-3" href="{{ url_for('user_posts',username=post.author.username)}}">- By {{ post.author.username }}</a><br>
-                <a class="float-right mr-3" href="{{ url_for('post', post_id=post.id)}}">Continue reading</a>
+                <a class="float-right mr-3" href="{{ url_for('users.user_posts',username=post.author.username)}}">- By {{ post.author.username }}</a><br>
+                <a class="float-right mr-3" href="{{ url_for('posts.post', post_id=post.id)}}">Continue reading</a>
             </div>
         </div>
 <!--        <p class='text-muted pr-3'></p>-->
@@ -48,9 +48,9 @@
     {% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
         {% if page_num%}
             {% if posts.page == page_num %}
-                <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num)}}">{{ page_num }}</a>
+                <a class="btn btn-info mb-4" href="{{ url_for('main.home', page=page_num)}}">{{ page_num }}</a>
             {% else %}
-                <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num)}}">{{ page_num }}</a>
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('main.home', page=page_num)}}">{{ page_num }}</a>
             {% endif %}
         {% else %}
             ...

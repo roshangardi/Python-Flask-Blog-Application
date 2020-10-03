@@ -7,14 +7,14 @@
             </h3>
             <div class="col-12 d-flex justify-content-end">
             {% if post.author == current_user %}
-                <a class="btn btn-sm btn-secondary btn-outline-light px-3 bg-transparent" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+                <a class="btn btn-sm btn-secondary btn-outline-light px-3 bg-transparent" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
                 <button class="btn btn-danger btn-sm btn-outline-light px-3" data-toggle="modal" data-target="#deleteModal">Delete</button>
             {% endif %}
             </div>
 
           <div class="blog-post">
             <h2 class="blog-post-title" style="color:white;opacity: 0.7;">{{ post.title }}</h2>
-            <p class="blog-post-meta">{{ post.date_posted.strftime('%Y-%m-%d') }} by <a href="{{ url_for('user_posts',username=post.author.username)}}">{{ post.author.username }}</a></p>
+            <p class="blog-post-meta">{{ post.date_posted.strftime('%Y-%m-%d') }} by <a href="{{ url_for('users.user_posts',username=post.author.username)}}">{{ post.author.username }}</a></p>
 
             <p>{{ post.content }}</p>
             <hr>
@@ -65,7 +65,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form action="{{ url_for('delete_post',post_id=post.id) }}" method="post">
+            <form action="{{ url_for('posts.delete_post',post_id=post.id) }}" method="post">
                 <input class="btn btn-danger btn-sm btn-outline-secondary px-3 btn-outline-light" type="submit" value="Delete">
             </form>
           </div>
