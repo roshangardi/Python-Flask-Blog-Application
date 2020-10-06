@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile-flask
+    container_name: flask
+    restart: always
+    image: webapp-flask-image
+    environment:
+      - APP_NAME=MyFlaskApp
+    expose:
+      - 8080
+
+  nginx:
+    build: ./nginx
+    image: webapp-nginx-image
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - flask
+
