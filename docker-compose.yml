@@ -9,6 +9,8 @@ services:
     container_name: flask
     restart: always
     image: webapp-flask-image
+    env_file:
+      - envvars.env
     environment:
       - APP_NAME=MyFlaskApp
     expose:
