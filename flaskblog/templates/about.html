@@ -45,7 +45,7 @@
                   </div>
                   <div id="logo" data-content-field="site-title">
                      <h1 class="logo image">
-                        <a href="/">
+                        <a href="/about">
                         <img src="{{ url_for('static', filename='RGlogo.jpg')}}"/>
                         </a>
                      </h1>
@@ -59,7 +59,7 @@
                      <nav id="mainNavigation" class="main-nav dropdown-click desktop-nav">
                         <ul>
                            <li class="page-collection">
-                              <a href="/projects">Posts</a>
+                              <a href="{{ url_for('main.home') }}">Posts</a>
                            </li>
                            <li class="folder-collection folder">
                                  <a>SecondHeader</a>
@@ -85,10 +85,10 @@
                               <div class="subnav">
                                  <ul>
                                     <li class="external-link">
-                                       <a href="#https://growbyginkgo.com" target="_blank">UpcomingLinks</a>
+                                       <a href="#">UpcomingLinks</a>
                                     </li>
                                     <li class="external-link">
-                                       <a href="#http://ginkgobioworks.com/creative-residency" target="_blank">UpcomingLinks</a>
+                                       <a href="#creative-residency">UpcomingLinks</a>
                                     </li>
                                  </ul>
                               </div>
@@ -97,11 +97,11 @@
                      </nav>
                      <nav id="secondaryNavigation" class="main-nav dropdown-click desktop-nav">
                         <ul>
-                           <li class="page-collection active-link">
-                              <a href="/">About</a>
-                           </li>
+<!--                           <li class="page-collection active-link">-->
+<!--                              <a href="{{ url_for('main.about') }}">About</a>-->
+<!--                           </li>-->
                            <li class="page-collection">
-                              <a href="/contact">Contact</a>
+                              <div> Contact </div>
                            </li>
                         </ul>
                      </nav>
@@ -128,7 +128,7 @@
                                                 <use class="sqs-use--mask" xlink:href="#instagram-mask"></use>
                                              </svg>
                                           </div>
-<!--                                       </a>-->
+                                       </a>
 <!--                                       <a href="#" target="_blank" class="sqs-svg-icon&#45;&#45;wrapper twitter" aria-label="Roshan Gardi">-->
 <!--                                          <div>-->
 <!--                                             <svg class="sqs-svg-icon&#45;&#45;social" viewBox="0 0 64 64">-->
@@ -202,7 +202,7 @@
                                     <h2 style="margin-left:40px;white-space:pre-wrap;">Hi, I’m Roshan Gardi.</h2>
                                     <p style="margin-left:40px;white-space:pre-wrap;" class="">I'm a DevOps Engineer and a certified AWS Solutions Architect. I write blogs and provide indispensable resource for people who are eager to dive into the DevOps paradigm. </p>
                                     <p style="margin-left:40px;white-space:pre-wrap;" class="">Prior to this, I completed my undergraduate in Computer Engineering in 2017. During the time,
-                                    <p style="margin-left:40px;white-space:pre-wrap;" class=""><em> To know more about my journey or if you want to just drop by to say 'Hello', click on any of the link in Contact section. </em></p>
+                                    <p style="margin-left:40px;white-space:pre-wrap;" class=""><em> To know more about my journey or if you want to just drop by to say 'Hello', click on any of the link in the Contact section. </em></p>
                                  </div>
                               </div>
                            </div>
