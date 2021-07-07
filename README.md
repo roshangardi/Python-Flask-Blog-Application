@@ -25,7 +25,7 @@ Make sure you're changing the values of email and password in envvars file.
 
 ---
 ### Blog Application Web Interface:
-![BlogApplication](https://github.com/roshangardi/Python-Flask-Blog-Application/blob/main/Images/PythonBlogApplication.PNG?raw=true)
+![BlogApplication](https://github.com/roshangardi/Python-Flask-Blog-Application/blob/master/Images/PythonBlogApplication.PNG?raw=true)
 ### Support
 
 Reach out to me on:
